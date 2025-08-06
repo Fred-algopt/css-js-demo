@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.parent .main {
+  transform-style: preserve-3d;
+  animation: 2s linear infinite spell
+}
+
+@keyframes spell {
+  0% {
+    transform: perspective(1000px) rotateX(0) rotate(25deg)
+  }
+
+  100% {
+    transform: perspective(1000px) rotateX(360deg) rotate(25deg) rotateY(180deg)
+  }
+}
+
+.main:hover {
+  animation-play-state: paused
+}
+
+.parent .main span {
+  position: absolute;
+  color: #fff;
+  transform-style: preserve-3d;
+  white-space: nowrap;
+  font-weight: bolder;
+  padding: 0 10px;
+  text-transform: uppercase;
+  font-size: 3.5em;
+  text-shadow: 0 5px 15px #303030;
+  transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(100px);
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, .3), transparent);
+  line-height: 200px;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+  backface-visibility: visible;
+  animation: 5s linear infinite color-picker
+}
+
+@keyframes color-picker {
+  0% {
+    filter: hue-rotate(0deg)
+  }
+
+  100% {
+    filter: hue-rotate(360deg)
+  }
+}
+
+span i:first-child {
+  color: #009cf8;
+  animation: 1s linear infinite text
+}
+
+span i:last-child {
+  color: brown
+}
