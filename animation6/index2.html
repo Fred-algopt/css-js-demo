@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3 étoiles qui tournent</title>
+  <style>
+    *, *:before, *:after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #222;
+    }
+    .container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    input[type="checkbox"] {
+      position: absolute;
+      top: 320px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    /* animation rotation */
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Conteneurs étoiles */
+    .star-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      /* On centre chaque wrapper sur le milieu du container */
+    }
+
+    /* Etoiles - forme simple via clip-path */
+    .star {
+      display: block;
+      width: 60px;
+      height: 60px;
+      background: gold;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      filter: drop-shadow(0 0 2px #ffec99);
+    }
+
+    /* Trois étoiles avec tailles différentes */
+    .star1 {
+      width: 80px;
+      height: 80px;
+      background: #ffcc00;
+    }
+    .star2 {
+      width: 50px;
+      height: 50px;
+      background: #ffd633;
+    }
+    .star3 {
+      width: 30px;
+      height: 30px;
+      background: #ffe066;
+    }
+
+    /* Positionnement autour du centre */
+    .star-wrapper1 {
+      margin-left: -40px; /* moitié taille étoile1 */
+      margin-top: -140px; /* rayon de rotation */
+      animation: spin 5s linear infinite;
+      animation-play-state: paused;
+    }
+    .star-wrapper2 {
+      margin-left: -25px; /* moitié taille étoile2 */
+      margin-top: -100px;
+      animation: spin 3s linear infinite;
+      animation-play-state: paused;
+    }
+    .star-wrapper3 {
+      margin-left: -15px;
+      margin-top: -70px;
+      animation: spin 1.5s linear infinite;
+      animation-play-state: paused;
+    }
+
+    /* Quand checkbox cochée : on lance les animations */
+    input[type="checkbox"]:checked ~ .container .star-wrapper1 {
+      animation-play-state: running;
+    }
+    input[type="checkbox"]:checked ~ .container .star-wrapper2 {
+      animation-play-state: running;
+    }
+    input[type="checkbox"]:checked ~ .container .star-wrapper3 {
+      animation-play-state: running;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="checkbox" id="btn" />
+  <label for="btn" style="color:white; position:absolute; top: 280px; left: 50%; transform: translateX(-50%); cursor:pointer;">
+    Clique pour démarrer/arrêter la rotation
+  </label>
+
+  <div class="container">
+    <div class="star-wrapper star-wrapper1">
+      <div class="star star1"></div>
+    </div>
+    <div class="star-wrapper star-wrapper2">
+      <div class="star star2"></div>
+    </div>
+    <div class="star-wrapper star-wrapper3">
+      <div class="star star3"></div>
+    </div>
+  </div>
+
+</body>
+</html>
