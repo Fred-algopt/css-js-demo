@@ -1,1 +1,113 @@
-t
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Constellations Grandes et Petites Ourse</title>
+<style>
+  /* Fond noir */
+  body, html {
+    margin: 0; padding: 0; height: 100vh; width: 100vw;
+    background: black;
+    overflow: hidden;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Petites étoiles aléatoires */
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite ease-in-out alternate;
+  }
+  /* variation d'animation pour ne pas être synchro */
+  .star:nth-child(2n) { animation-duration: 2.5s; }
+  .star:nth-child(3n) { animation-duration: 4s; }
+  .star:nth-child(4n) { animation-duration: 3.5s; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* Étoiles des constellations : plus grosses, jaune pâle, scintillent */
+  .constellation-star {
+    position: absolute;
+    background: radial-gradient(circle at center, #fff8b0 0%, #bfa600 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px #fff8b0;
+    animation: pulse 2.5s infinite ease-in-out alternate;
+    opacity: 0.9;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 10px 3px #fff8b0; }
+    50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px 7px #fff8b0; }
+  }
+
+  /* Label nom des étoiles */
+  .label {
+    position: absolute;
+    color: #fff8b0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 0 4px black;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // Générer 100 petites étoiles aléatoires
+  for(let i=0; i<100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    const size = Math.random()*2 + 1; // 1px à 3px
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.top = Math.random() * 100 + 'vh';
+    star.style.left = Math.random() * 100 + 'vw';
+    document.body.appendChild(star);
+  }
+</script>
+
+<!-- Étoiles Grande Ourse (position approximative en % du viewport) -->
+<div class="constellation-star" style="width:14px; height:14px; top:45vh; left:25vw;"></div>
+<div class="label" style="top:47vh; left:26vw;">Dubhe (α UMa)</div>
+
+<div class="constellation-star" style="width:12px; height:12px; top:55vh; left:30vw;"></div>
+<div class="label" style="top:57vh; left:31vw;">Merak (β UMa)</div>
+
+<div class="constellation-star" style="width:10px; height:10px; top:60vh; left:35vw;"></div>
+<div class="label" style="top:62vh; left:36vw;">Phecda (γ UMa)</div>
+
+<div class="constellation-star" style="width:8px; height:8px; top:55vh; left:40vw;"></div>
+<div class="label" style="top:57vh; left:41vw;">Megrez (δ UMa)</div>
+
+<div class="constellation-star" style="width:12px; height:12px; top:45vh; left:45vw;"></div>
+<div class="label" style="top:47vh; left:46vw;">Alioth (ε UMa)</div>
+
+<div class="constellation-star" style="width:14px; height:14px; top:40vh; left:50vw;"></div>
+<div class="label" style="top:42vh; left:51vw;">Mizar (ζ UMa)</div>
+
+<div class="constellation-star" style="width:10px; height:10px; top:35vh; left:55vw;"></div>
+<div class="label" style="top:37vh; left:56vw;">Alkaid (η UMa)</div>
+
+<!-- Étoiles Petite Ourse -->
+<div class="constellation-star" style="width:16px; height:16px; top:25vh; left:75vw;"></div>
+<div class="label" style="top:27vh; left:76vw;">Polaris (α UMi)</div>
+
+<div class="constellation-star" style="width:10px; height:10px; top:35vh; left:70vw;"></div>
+<div class="label" style="top:37vh; left:71vw;">Kochab (β UMi)</div>
+
+<div class="constellation-star" style="width:10px; height:10px; top:33vh; left:65vw;"></div>
+<div class="label" style="top:35vh; left:66vw;">Pherkad (γ UMi)</div>
+
+<div class="constellation-star" style="width:8px; height:8px; top:30vh; left:60vw;"></div>
+<div class="label" style="top:32vh; left:61vw;">Yildun (δ UMi)</div>
+
+</body>
+</html>
