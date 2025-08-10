@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Étoiles Grande Ourse et Polaire</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; height: 100vh; width: 100vw;
+    background: black;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: radial-gradient(circle, white 0%, #ccc 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px white;
+    animation: pulse 3s infinite ease-in-out alternate;
+  }
+  .star.polaris {
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0 25px 8px white;
+    animation-duration: 4s;
+  }
+  .star.normal {
+    width: 14px;
+    height: 14px;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.3); opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Étoiles Grande Ourse (Grand Chariot) -->
+<div class="star normal" style="top:45vh; left:25vw;"></div>  <!-- Dubhe -->
+<div class="star normal" style="top:53vh; left:30vw;"></div>  <!-- Merak -->
+<div class="star normal" style="top:61vh; left:35vw;"></div>  <!-- Phecda -->
+<div class="star normal" style="top:55vh; left:40vw;"></div>  <!-- Megrez -->
+<div class="star normal" style="top:44vh; left:45vw;"></div>  <!-- Alioth -->
+<div class="star normal" style="top:39vh; left:50vw;"></div>  <!-- Mizar -->
+<div class="star normal" style="top:32vh; left:55vw;"></div>  <!-- Alkaid -->
+
+<!-- Étoile Polaire (grossie) -->
+<div class="star polaris" style="top:20vh; left:70vw;"></div>
+
+</body>
+</html>

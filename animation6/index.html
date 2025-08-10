@@ -1,1 +1,139 @@
-t
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grand et Petite Ourse avec lignes</title>
+<style>
+  body, html {
+    margin: 0; padding: 0; height: 100vh; width: 100vw;
+    background: black;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+  .star {
+    position: absolute;
+    background: radial-gradient(circle, white 0%, #ccc 80%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px white;
+    animation: pulse 2.5s infinite ease-in-out alternate;
+    cursor: default;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.9; box-shadow: 0 0 10px 3px white; }
+    50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 20px 7px white; }
+  }
+  .label {
+    position: absolute;
+    color: #fff8b0;
+    font-size: 0.8rem;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    text-shadow: 0 0 4px black;
+    white-space: nowrap;
+  }
+  svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+  line {
+    stroke: #fff8b0;
+    stroke-width: 1.5;
+    stroke-opacity: 0.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- Étoiles Grande Ourse -->
+<div id="dubhe" class="star" style="width:14px; height:14px; top:40vh; left:25vw;"></div>
+<div class="label" style="top:43vh; left:24vw;">Dubhe</div>
+
+<div id="merak" class="star" style="width:12px; height:12px; top:52vh; left:30vw;"></div>
+<div class="label" style="top:54vh; left:29vw;">Merak</div>
+
+<div id="phecda" class="star" style="width:10px; height:10px; top:60vh; left:35vw;"></div>
+<div class="label" style="top:62vh; left:34vw;">Phecda</div>
+
+<div id="megrez" class="star" style="width:8px; height:8px; top:55vh; left:40vw;"></div>
+<div class="label" style="top:57vh; left:39vw;">Megrez</div>
+
+<div id="alioth" class="star" style="width:12px; height:12px; top:43vh; left:45vw;"></div>
+<div class="label" style="top:45vh; left:44vw;">Alioth</div>
+
+<div id="mizar" class="star" style="width:14px; height:14px; top:37vh; left:50vw;"></div>
+<div class="label" style="top:39vh; left:49vw;">Mizar</div>
+
+<div id="alkaid" class="star" style="width:10px; height:10px; top:30vh; left:55vw;"></div>
+<div class="label" style="top:32vh; left:54vw;">Alkaid</div>
+
+<!-- Étoiles Petite Ourse -->
+<div id="polaris" class="star" style="width:16px; height:16px; top:20vh; left:75vw;"></div>
+<div class="label" style="top:22vh; left:74vw;">Polaris</div>
+
+<div id="kochab" class="star" style="width:10px; height:10px; top:35vh; left:70vw;"></div>
+<div class="label" style="top:37vh; left:69vw;">Kochab</div>
+
+<div id="pherakad" class="star" style="width:10px; height:10px; top:33vh; left:65vw;"></div>
+<div class="label" style="top:35vh; left:64vw;">Pherkad</div>
+
+<div id="yildun" class="star" style="width:8px; height:8px; top:30vh; left:60vw;"></div>
+<div class="label" style="top:32vh; left:59vw;">Yildun</div>
+
+<!-- SVG lignes des constellations -->
+<svg>
+  <!-- Grand Chariot (Grande Ourse) -->
+  <line x1="25vw" y1="40vh" x2="30vw" y2="52vh" />
+  <line x1="30vw" y1="52vh" x2="35vw" y2="60vh" />
+  <line x1="35vw" y1="60vh" x2="40vw" y2="55vh" />
+  <line x1="40vw" y1="55vh" x2="45vw" y2="43vh" />
+  <line x1="45vw" y1="43vh" x2="50vw" y2="37vh" />
+  <line x1="50vw" y1="37vh" x2="55vw" y2="30vh" />
+  <line x1="25vw" y1="40vh" x2="40vw" y2="55vh" />
+  <line x1="30vw" y1="52vh" x2="45vw" y2="43vh" />
+
+  <!-- Petite Ourse -->
+  <line x1="75vw" y1="20vh" x2="70vw" y2="35vh" />
+  <line x1="70vw" y1="35vh" x2="65vw" y2="33vh" />
+  <line x1="65vw" y1="33vh" x2="60vw" y2="30vh" />
+</svg>
+
+<script>
+  // Petit ajustement SVG avec JS pour convertir vw/vh en pixels pour les lignes
+
+  const svg = document.querySelector('svg');
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  function convertVWtoPX(vw) {
+    return (parseFloat(vw) / 100) * w;
+  }
+  function convertVHtoPX(vh) {
+    return (parseFloat(vh) / 100) * h;
+  }
+
+  for (let line of svg.querySelectorAll('line')) {
+    line.setAttribute('x1', convertVWtoPX(line.getAttribute('x1')));
+    line.setAttribute('y1', convertVHtoPX(line.getAttribute('y1')));
+    line.setAttribute('x2', convertVWtoPX(line.getAttribute('x2')));
+    line.setAttribute('y2', convertVHtoPX(line.getAttribute('y2')));
+  }
+
+  window.addEventListener('resize', () => {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    for (let line of svg.querySelectorAll('line')) {
+      line.setAttribute('x1', convertVWtoPX(line.getAttribute('x1')));
+      line.setAttribute('y1', convertVHtoPX(line.getAttribute('y1')));
+      line.setAttribute('x2', convertVWtoPX(line.getAttribute('x2')));
+      line.setAttribute('y2', convertVHtoPX(line.getAttribute('y2')));
+    }
+  });
+</script>
+
+</body>
+</html>
