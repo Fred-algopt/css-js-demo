@@ -103,25 +103,45 @@ h1 {
   color: white;
 }
 
-/* Animation nuages */
+/* Nuages améliorés */
 .nuages .icon {
   position: relative;
   background: transparent;
-  width: 100%;
-  height: 40px;
+  width: 120px;
+  height: 50px;
 }
 
 .nuages .cloud {
   position: absolute;
-  top: 8px;
-  background: linear-gradient(180deg, #ffffffbb, #dfe9f9aa);
-  height: 26px;
-  border-radius: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow:
+    -15px 5px 0 -5px #fff,
+    15px 5px 0 -5px #fff,
+    0px 10px 0 -5px #fff;
 }
 
-.nuages .cloud.c1 { left: 6px; width: 48px; animation: cloud1 8s linear infinite; }
-.nuages .cloud.c2 { left: 40px; width: 68px; top: 2px; animation: cloud2 10s linear infinite; }
-.nuages .cloud.c3 { left: 90px; width: 38px; top: 10px; animation: cloud3 6s linear infinite; }
+.nuages .cloud.c1 {
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 10px;
+  animation: cloud-move 10s linear infinite;
+}
+
+.nuages .cloud.c2 {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 50px;
+  animation: cloud-move 14s linear infinite reverse;
+}
+
+@keyframes cloud-move {
+  0% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(8px); opacity: 0.9; }
+  100% { transform: translateX(0); opacity: 1; }
+}
 
 @keyframes cloud1 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
 @keyframes cloud2 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-10px); } }
