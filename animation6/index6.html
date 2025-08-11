@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<title>Bordures complexes ajustées</title>
+<title>Bordures avec maillage, mosaïque et vagues</title>
 <style>
 body {
   font-family: Arial, sans-serif;
@@ -21,100 +21,43 @@ body {
 
 /* Bordure Maillage Viking */
 .viking {
-  border-width: 20px; /* correspond à hauteur motif 20 */
-  border-style: solid;
-  border-color: transparent;
-  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cdefs%3E%3Cpattern id='pattern-viking' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Crect x='0' y='0' width='20' height='20' fill='none'/%3E%3Cpath d='M0 10 L10 0 L20 10 L10 20 Z' fill='url(%23grad1)' stroke='%23666666' stroke-width='1'/%3E%3Cpath d='M10 0 L20 10 L10 20 L0 10 Z' fill='url(%23grad2)' stroke='%23666666' stroke-width='1'/%3E%3C/pattern%3E%3ClinearGradient id='grad1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23bbb' /%3E%3Cstop offset='100%25' stop-color='%23666' /%3E%3C/linearGradient%3E%3ClinearGradient id='grad2' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23666' /%3E%3Cstop offset='100%25' stop-color='%23bbb' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='20' height='20' fill='url(%23pattern-viking)' opacity='0.9'/%3E%3C/svg%3E") 20 repeat;
-  border-radius: 15px;
+  border: 30px solid transparent;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJwYXR0ZXJuLXZpa2luZyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBwYXR0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9Im5vbmUiLz4KICAgICAgPHBhdGggZD0iTTAgMTUgTDE1IDAgMzAgMTUgTDE1IDMwIFoiIGZpbGw9InVybCgjZ3JhZDEpIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8cGF0aCBkPSJNMTUgMCAzMCAxNSAxNSAzMCAwIDE1IFoiIGZpbGw9InVybCgjZ3JhZDIpIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYmJiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY2NiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDIiIHgxPSIwIiB5MT0iMSIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiYmIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0idXJsKCNwYXR0ZXJuLXZpa2luZykiIG9wYWNpdHk9IjAuOSI+PC9yZWN0Pgo8L3N2Zz4=");
+  border-image-slice: 30;
+  border-image-repeat: repeat;
 }
 
 /* Bordure mosaïque Méditerranéenne */
 .mediterraneen {
-  border-width: 30px; /* hauteur motif 30 */
-  border-style: solid;
-  border-color: transparent;
-  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Cdefs%3E%3Cpattern id='pattern-mediterraneen' width='30' height='30' patternUnits='userSpaceOnUse'%3E%3Crect width='30' height='30' fill='white' /%3E%3Ccircle cx='15' cy='15' r='12' fill='%23d94e1f' opacity='0.8'/%3E%3Ccircle cx='15' cy='15' r='8' fill='%23f4c542' opacity='0.9'/%3E%3Ccircle cx='15' cy='15' r='4' fill='%231f7fd9' opacity='0.7'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='30' height='30' fill='url(%23pattern-mediterraneen)' opacity='0.95'/%3E%3C/svg%3E") 30 repeat;
-  border-radius: 15px;
+  border: 30px solid transparent;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJwYXR0ZXJuLW1lZGl0ZXJyYW5lbiIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBwYXR0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9IndoaXRlIi8+CiAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjEyIiBmaWxsPSIjZDk0ZTFmIiBvcGFjaXR5PSIwLjgiLz4KICAgICAgPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj04IGZpbGw9IiNmNGM1NDIiIG9wYWNpdHk9IjAuOSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSI0IiBmaWxsPSIjMWY3ZmQ5IiBvcGFjaXR5PSIwLjciLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSJ1cmwoI3BhdHRlcm4tbWVkaXRlcnJhbmVuKSIgb3BhY2l0eT0iMC45NSIvPgo8L3N2Zz4=");
+  border-image-slice: 30;
+  border-image-repeat: repeat;
 }
 
-/* Bordure Océan avec vagues et bulles, pattern séparé pour chaque côté */
+/* Bordure Océan avec vagues simples */
 .ocean {
-  border-style: solid;
-  border-color: transparent;
-  border-width: 40px; /* hauteur des motifs */
-  border-radius: 30px;
-  position: relative;
-
-  /* Bordure top et bottom : vagues horizontales */
-  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='waveGrad' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23007ac1' stop-opacity='0.8' /%3E%3Cstop offset='100%25' stop-color='%23005b8f' stop-opacity='0.5' /%3E%3C/linearGradient%3E%3Cpattern id='pattern-waves' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 20 Q10 0 20 20 T40 20' fill='none' stroke='url(%23waveGrad)' stroke-width='4' opacity='0.7'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='40' height='40' fill='url(%23pattern-waves)' /%3E%3C/svg%3E");
-  border-image-slice: 30 fill;
+  border: 40px solid transparent;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id2F2ZUdSYWQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwN2FjMSIgc3RvcC1vcGFjaXR5PSIwLjgiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNWI4ZiIgc3RvcC1vcGFjaXR5PSIwLjUiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdGggZD0iTTAgMjAgUTAgMCAyMCAwIFQ0MCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3dhdmVHcmFkKSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciLz4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI3dhdmVHcmFkKSIgb3BhY2l0eT0iMC43Ii8+Cjwvc3ZnPg==");
+  border-image-slice: 40;
   border-image-repeat: round;
-  border-image-width: 40px;
-  border-image-outset: 0;
-  border-image-repeat: round;
-
-  /* Pour avoir des vagues verticales sur les côtés, on va utiliser un ::before et ::after */
-}
-.ocean::before,
-.ocean::after {
-  content: "";
-  position: absolute;
-  top: 40px; bottom: 40px; /* hauteur des bordures */
-  width: 40px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='waveGradV' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0%25' stop-color='%23007ac1' stop-opacity='0.8' /%3E%3Cstop offset='100%25' stop-color='%23005b8f' stop-opacity='0.5' /%3E%3C/linearGradient%3E%3Cpattern id='pattern-wavesV' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M20 0 Q40 10 20 20 T20 40' fill='none' stroke='url(%23waveGradV)' stroke-width='4' opacity='0.7'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='40' height='40' fill='url(%23pattern-wavesV)' /%3E%3C/svg%3E") repeat-y;
-  filter: drop-shadow(0 0 2px rgba(255 255 255 / 0.6));
-  pointer-events: none;
-  border-radius: 0 30px 30px 0;
-  z-index: 10;
-}
-.ocean::after {
-  right: 0;
-  transform: scaleX(-1);
-  border-radius: 30px 0 0 30px;
-}
-.ocean::before {
-  left: 0;
-}
-
-/* Bulles blanches translucides sur les coins */
-.ocean .bulle {
-  position: absolute;
-  background: rgba(255,255,255,0.4);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 4px rgba(255 255 255 / 0.7));
-  pointer-events: none;
-}
-.ocean .bulle1 {
-  width: 14px; height: 14px;
-  top: 10px; left: 15px;
-}
-.ocean .bulle2 {
-  width: 20px; height: 20px;
-  bottom: 20px; right: 20px;
-}
-.ocean .bulle3 {
-  width: 10px; height: 10px;
-  top: 40px; right: 50px;
 }
 </style>
 </head>
 <body>
 
-<h1>Bordures complexes ajustées</h1>
+<h1>Bordures avec maillage, mosaïque et vagues</h1>
 
 <div class="cadre viking">
-  Bordure effet Maillage Viking (entrelaçage métallique)
+  Bordure effet Maillage Viking (entrelacs métallique)
 </div>
 
 <div class="cadre mediterraneen">
   Bordure effet Mosaïque Méditerranéenne (motifs colorés semi-transparents)
 </div>
 
-<div class="cadre ocean" style="position:relative;">
-  Bordure effet Océan (vagues orientées horizontal/vertical et bulles)<br>
-  <div class="bulle bulle1"></div>
-  <div class="bulle bulle2"></div>
-  <div class="bulle bulle3"></div>
+<div class="cadre ocean">
+  Bordure effet Océan (vagues bleues simples)
 </div>
 
 </body>
