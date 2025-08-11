@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Choix de bordures</title>
+<title>Bordures décoratives</title>
 <style>
 body {
   font-family: sans-serif;
@@ -10,7 +10,6 @@ body {
   padding: 20px;
 }
 
-/* Style commun aux cadres */
 .cadre {
   margin: 20px 0;
   padding: 20px;
@@ -18,42 +17,79 @@ body {
   font-size: 1.2em;
 }
 
-/* Bordure Viking (SVG base64) */
+/* Effet Viking */
 .viking {
-  border: 40px solid transparent;
-  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDAwJyBoZWlnaHQ9JzQwMCcgdmlld0JveD0nMCAwIDQwMCA0MDAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTAgMGg0MDB2NDAwaC00MDB6JyBmaWxsPSdub25lJy8+PHBhdGggZD0nTSAwIDAgTCA0MDAgNDAwIE0gMCA0MDAgTCA0MDAgMCcgc3Ryb2tlPSdncmF5JyBzdHJva2Utd2lkdGg9JzIwcHgnIHN0cm9rZS1kYXNoYXJyYXk9JzQwIDQwJy8+PC9zdmc+");
-  border-image-slice: 40 fill;
-  border-image-repeat: round;
-}
-
-/* Bordure Méditerranéenne (SVG base64) */
-.mediterraneen {
-  border: 30px solid transparent;
-  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMzAnIGhlaWdodD0nMzAnIHZpZXdCb3g9JzAgMCAzMCAzMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMzAnIGhlaWdodD0nMzAnIGZpbGw9J2F6dXJlJy8+PGNpcmNsZSBjeD0nMTUnIGN5PScxNScgcj0nMTEiIGZpbGw9J3doaXRlJy8+PC9zdmc+");
-  border-image-slice: 30 fill;
-  border-image-repeat: round;
-}
-
-/* Bordure stylisée (CSS pur) */
-.stylise {
-  border: 10px solid transparent;
+  border: 20px solid transparent;
   border-image: repeating-linear-gradient(
     45deg,
-    goldenrod,
-    goldenrod 10px,
-    darkgoldenrod 10px,
-    darkgoldenrod 20px
-  ) 10;
+    #c0c0c0 0px,
+    #c0c0c0 5px,
+    #8b8b8b 5px,
+    #8b8b8b 10px,
+    #c0c0c0 10px,
+    #c0c0c0 15px,
+    #a0a0a0 15px,
+    #a0a0a0 20px
+  ) 20;
+}
+
+/* Effet Méditerranéen */
+.mediterraneen {
+  border: 20px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #f4c542 0px,
+    #f4c542 6px,
+    #d94e1f 6px,
+    #d94e1f 12px,
+    #1f7fd9 12px,
+    #1f7fd9 18px,
+    #f4c542 18px,
+    #f4c542 24px
+  ) 20;
+}
+
+/* Effet Nature bois & végétaux */
+.nature {
+  border: 20px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #3a5f0b 0px,
+    #3a5f0b 8px,
+    #6b8e23 8px,
+    #6b8e23 16px,
+    #8b4513 16px,
+    #8b4513 24px,
+    #3a5f0b 24px,
+    #3a5f0b 32px
+  ) 20;
+}
+
+/* Effet Broderie/Tresse */
+.broderie {
+  border: 20px solid transparent;
+  border-image: repeating-linear-gradient(
+    135deg,
+    #ffd700 0px,
+    #ffd700 4px,
+    #daa520 4px,
+    #daa520 8px,
+    #b8860b 8px,
+    #b8860b 12px,
+    #daa520 12px,
+    #daa520 16px
+  ) 20;
 }
 </style>
 </head>
 <body>
 
-<h1>Choisissez votre style de bordure</h1>
+<h1>Styles de bordures décoratives</h1>
 
-<div class="cadre viking">Bordure Viking (entrelacs métalliques)</div>
-<div class="cadre mediterraneen">Bordure Méditerranéenne (mosaïque)</div>
-<div class="cadre stylise">Bordure stylisée (CSS pur)</div>
+<div class="cadre viking">Bordure effet Viking (métal entrelacé)</div>
+<div class="cadre mediterraneen">Bordure effet Méditerranéen (mosaïque colorée)</div>
+<div class="cadre nature">Bordure effet Nature (bois & végétaux)</div>
+<div class="cadre broderie">Bordure effet Broderie/Tresse</div>
 
 </body>
 </html>
