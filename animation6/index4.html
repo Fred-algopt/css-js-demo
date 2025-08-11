@@ -1,120 +1,80 @@
-:root {
-  --bg: #071029;
-  --accent: #ffd166;
-  --muted: #cbd5e1;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animations & Objets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Exploration interactive</h1>
 
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: var(--bg);
-  color: var(--muted);
-  padding: 20px;
-}
+  <div class="grid">
+    <div class="card sun" data-info="Le Soleil est l’étoile de notre système solaire.">
+      <div class="icon"></div>
+      <div class="label">Soleil</div>
+    </div>
 
-h1 {
-  color: var(--accent);
-  margin-bottom: 20px;
-}
+    <div class="card earth" data-info="La Terre est la troisième planète à partir du Soleil.">
+      <div class="icon"></div>
+      <div class="label">Terre</div>
+    </div>
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 14px;
-}
+    <div class="card mars" data-info="Mars est la quatrième planète et est connue comme la planète rouge.">
+      <div class="icon"></div>
+      <div class="label">Mars</div>
+    </div>
 
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 14px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    <div class="card nuages" data-info="Les nuages flottent dans l’atmosphère terrestre.">
+      <div class="icon">
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="cloud c3"></div>
+      </div>
+      <div class="label">Nuages</div>
+    </div>
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+    <div class="card telescope" data-info="Instrument utilisé pour observer les étoiles.">
+      <div class="icon">🔭</div>
+      <div class="label">Télescope</div>
+    </div>
 
-.icon {
-  font-size: 36px;
-}
+    <div class="card rocket" data-info="Fusée pour voyager dans l’espace.">
+      <div class="icon">🚀</div>
+      <div class="label">Fusée</div>
+    </div>
+  </div>
 
-.label {
-  font-size: 13px;
-  text-align: center;
-}
+  <!-- Modale -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <p id="modal-text"></p>
+      <button class="close" id="close-btn">Fermer</button>
+    </div>
+  </div>
 
-/* Modale */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalText = document.getElementById('modal-text');
+    const closeBtn = document.getElementById('close-btn');
 
-.modal-content {
-  background: #fff;
-  color: #000;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
-  text-align: center;
-}
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        modalText.textContent = card.getAttribute('data-info');
+        modal.style.display = 'flex';
+      });
+    });
 
-.close {
-  background: #ccc;
-  border: none;
-  padding: 5px 10px;
-  margin-top: 10px;
-  cursor: pointer;
-}
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
 
-/* Effets spécifiques possibles */
-.sun .icon {
-  background: radial-gradient(circle at 30% 30%, #fff6cc 0 10%, #ffd166 30%, #ff9f1c 80%);
-  border-radius: 50%;
-}
-
-.earth .icon {
-  background: linear-gradient(180deg, #5fb6ff, #0a6a9b);
-  border-radius: 50%;
-  color: white;
-}
-
-.mars .icon {
-  background: linear-gradient(180deg, #ffad9b, #d94f3a);
-  border-radius: 50%;
-  color: white;
-}
-
-/* Animation nuages */
-.nuages .icon {
-  position: relative;
-  background: transparent;
-  width: 100%;
-  height: 40px;
-}
-
-.nuages .cloud {
-  position: absolute;
-  top: 8px;
-  background: linear-gradient(180deg, #ffffffbb, #dfe9f9aa);
-  height: 26px;
-  border-radius: 20px;
-}
-
-.nuages .cloud.c1 { left: 6px; width: 48px; animation: cloud1 8s linear infinite; }
-.nuages .cloud.c2 { left: 40px; width: 68px; top: 2px; animation: cloud2 10s linear infinite; }
-.nuages .cloud.c3 { left: 90px; width: 38px; top: 10px; animation: cloud3 6s linear infinite; }
-
-@keyframes cloud1 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
-@keyframes cloud2 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-10px); } }
-@keyframes cloud3 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
