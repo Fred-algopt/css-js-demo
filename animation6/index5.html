@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Choix de bordures</title>
+<style>
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+/* Style commun aux cadres */
+.cadre {
+  margin: 20px 0;
+  padding: 20px;
+  background: white;
+  font-size: 1.2em;
+}
+
+/* Bordure Viking (SVG base64) */
+.viking {
+  border: 40px solid transparent;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nNDAwJyBoZWlnaHQ9JzQwMCcgdmlld0JveD0nMCAwIDQwMCA0MDAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTAgMGg0MDB2NDAwaC00MDB6JyBmaWxsPSdub25lJy8+PHBhdGggZD0nTSAwIDAgTCA0MDAgNDAwIE0gMCA0MDAgTCA0MDAgMCcgc3Ryb2tlPSdncmF5JyBzdHJva2Utd2lkdGg9JzIwcHgnIHN0cm9rZS1kYXNoYXJyYXk9JzQwIDQwJy8+PC9zdmc+");
+  border-image-slice: 40 fill;
+  border-image-repeat: round;
+}
+
+/* Bordure Méditerranéenne (SVG base64) */
+.mediterraneen {
+  border: 30px solid transparent;
+  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMzAnIGhlaWdodD0nMzAnIHZpZXdCb3g9JzAgMCAzMCAzMCcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cmVjdCB3aWR0aD0nMzAnIGhlaWdodD0nMzAnIGZpbGw9J2F6dXJlJy8+PGNpcmNsZSBjeD0nMTUnIGN5PScxNScgcj0nMTEiIGZpbGw9J3doaXRlJy8+PC9zdmc+");
+  border-image-slice: 30 fill;
+  border-image-repeat: round;
+}
+
+/* Bordure stylisée (CSS pur) */
+.stylise {
+  border: 10px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    goldenrod,
+    goldenrod 10px,
+    darkgoldenrod 10px,
+    darkgoldenrod 20px
+  ) 10;
+}
+</style>
+</head>
+<body>
+
+<h1>Choisissez votre style de bordure</h1>
+
+<div class="cadre viking">Bordure Viking (entrelacs métalliques)</div>
+<div class="cadre mediterraneen">Bordure Méditerranéenne (mosaïque)</div>
+<div class="cadre stylise">Bordure stylisée (CSS pur)</div>
+
+</body>
+</html>
