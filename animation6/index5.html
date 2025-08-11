@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Bordures décoratives</title>
+<meta charset="UTF-8" />
+<title>Bordures décoratives avec bordure Océan</title>
 <style>
 body {
   font-family: sans-serif;
@@ -15,6 +15,7 @@ body {
   padding: 20px;
   background: white;
   font-size: 1.2em;
+  position: relative;
 }
 
 /* Effet Viking */
@@ -80,6 +81,51 @@ body {
     #daa520 16px
   ) 20;
 }
+
+/* Effet Océan */
+.ocean {
+  border: 25px solid transparent;
+  border-image: repeating-conic-gradient(
+    from 90deg,
+    #0077be 0deg 30deg,
+    #00aaff 30deg 60deg,
+    #0077be 60deg 90deg,
+    #00aaff 90deg 120deg,
+    #0077be 120deg 150deg,
+    #00aaff 150deg 180deg,
+    #0077be 180deg 210deg,
+    #00aaff 210deg 240deg,
+    #0077be 240deg 270deg,
+    #00aaff 270deg 300deg,
+    #0077be 300deg 330deg,
+    #00aaff 330deg 360deg
+  ) 25 round;
+  position: relative;
+}
+
+/* Bulles sur les côtés */
+.ocean::before,
+.ocean::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  width: 15px;
+  height: 15px;
+  background: rgba(255 255 255 / 0.6);
+  border-radius: 50%;
+  box-shadow:
+    0 40px 0 5px rgba(255 255 255 / 0.4),
+    0 80px 0 2px rgba(255 255 255 / 0.3),
+    0 120px 0 7px rgba(255 255 255 / 0.5);
+  pointer-events: none;
+  z-index: 2;
+}
+.ocean::before {
+  left: -40px;
+}
+.ocean::after {
+  right: -40px;
+}
 </style>
 </head>
 <body>
@@ -90,6 +136,7 @@ body {
 <div class="cadre mediterraneen">Bordure effet Méditerranéen (mosaïque colorée)</div>
 <div class="cadre nature">Bordure effet Nature (bois & végétaux)</div>
 <div class="cadre broderie">Bordure effet Broderie/Tresse</div>
+<div class="cadre ocean">Bordure effet Océan (vagues et bulles)</div>
 
 </body>
 </html>
