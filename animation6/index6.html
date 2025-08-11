@@ -2,62 +2,60 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<title>Bordures avec maillage, mosaïque et vagues</title>
+<title>Bordures avec motifs sur 4 côtés</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #eee;
-  padding: 20px;
-}
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    padding: 30px;
+  }
 
-.cadre {
-  margin: 30px auto;
-  padding: 25px;
-  background: white;
-  font-size: 1.2em;
-  max-width: 600px;
-  line-height: 1.4;
-}
+  .cadre {
+    margin: 40px auto;
+    padding: 25px;
+    max-width: 600px;
+    background: white;
+    font-size: 1.2em;
+    line-height: 1.4;
+    border-width: 40px;
+    border-style: solid;
+    border-image-repeat: repeat;
+  }
 
-/* Bordure Maillage Viking */
-.viking {
-  border: 30px solid transparent;
-  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJwYXR0ZXJuLXZpa2luZyIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBwYXR0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9Im5vbmUiLz4KICAgICAgPHBhdGggZD0iTTAgMTUgTDE1IDAgMzAgMTUgTDE1IDMwIFoiIGZpbGw9InVybCgjZ3JhZDEpIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgICA8cGF0aCBkPSJNMTUgMCAzMCAxNSAxNSAzMCAwIDE1IFoiIGZpbGw9InVybCgjZ3JhZDIpIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMSIvPgogICAgPC9wYXR0ZXJuPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkMSIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYmJiIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY2NiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDIiIHgxPSIwIiB5MT0iMSIgeDI9IjEiIHkyPSIwIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY2NiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiYmIiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgZmlsbD0idXJsKCNwYXR0ZXJuLXZpa2luZykiIG9wYWNpdHk9IjAuOSI+PC9yZWN0Pgo8L3N2Zz4=");
-  border-image-slice: 30;
-  border-image-repeat: repeat;
-}
+  /* Bordure Maillage Viking */
+  .viking {
+    border-image-source: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJub25lIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMiIgcng9IjAiLz4KICA8bGluZSB4MT0iMCIgeTE9IjAiIHgyPSI0MCIgeTI9IjQwIiBzdHJva2U9IiM2NjY2NjYiIHN0cm9rZS13aWR0aD0iMSIvPgogIDxsaW5lIHgxPSI0MCIgeTE9IjAiIHgyPSIwIiB5Mj0iNDAiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIxIi8+CiAgPGxpbmUgeDE9IjAiIHkxPSIyMCIgeDI9IjQwIiB5Mj0iMjAiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPg==');
+    border-image-slice: 40;
+  }
 
-/* Bordure mosaïque Méditerranéenne */
-.mediterraneen {
-  border: 30px solid transparent;
-  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJwYXR0ZXJuLW1lZGl0ZXJyYW5lbiIgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBwYXR0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIGZpbGw9IndoaXRlIi8+CiAgICAgIDxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjEyIiBmaWxsPSIjZDk0ZTFmIiBvcGFjaXR5PSIwLjgiLz4KICAgICAgPGNpcmNsZSBjeD0iMTUiIGN5PSIxNSIgcj04IGZpbGw9IiNmNGM1NDIiIG9wYWNpdHk9IjAuOSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSI0IiBmaWxsPSIjMWY3ZmQ5IiBvcGFjaXR5PSIwLjciLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjMwIiBoZWlnaHQ9IjMwIiBmaWxsPSJ1cmwoI3BhdHRlcm4tbWVkaXRlcnJhbmVuKSIgb3BhY2l0eT0iMC45NSIvPgo8L3N2Zz4=");
-  border-image-slice: 30;
-  border-image-repeat: repeat;
-}
+  /* Bordure Mosaïque Méditerranéenne */
+  .mediterraneen {
+    border-image-source: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjZDk0ZTFmIiBzdHJva2Utd2lkdGg9IjEiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxMiIgZmlsbD0iI2Q5NGUxZiIgc3Ryb2tlPSIjZjRjNTQyIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSI4IiBmaWxsPSIjZjRjNTQyIiBvcGFjaXR5PSIwLjgiLz4KPC9zdmc+');
+    border-image-slice: 40;
+  }
 
-/* Bordure Océan avec vagues simples */
-.ocean {
-  border: 40px solid transparent;
-  border-image-source: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0id2F2ZUdSYWQiIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwN2FjMSIgc3RvcC1vcGFjaXR5PSIwLjgiIC8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNWI4ZiIgc3RvcC1vcGFjaXR5PSIwLjUiIC8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPHBhdGggZD0iTTAgMjAgUTAgMCAyMCAwIFQ0MCAyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI3dhdmVHcmFkKSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIwLjciLz4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSJ1cmwoI3dhdmVHcmFkKSIgb3BhY2l0eT0iMC43Ii8+Cjwvc3ZnPg==");
-  border-image-slice: 40;
-  border-image-repeat: round;
-}
+  /* Bordure Océan avec vagues */
+  .ocean {
+    border-image-source: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTSAwIDIwIHFUIDAgMCAyMCAwIHRNICIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDA4YWE3IiBzdHJva2Utd2lkdGg9IjQiLz4KICA8cGF0aCBkPSJNIDAgMjAgdSAxMCAxMCAxMCAxMCIgc3Ryb2tlPSIjMDA4YWE3IiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiLz4KPC9zdmc+');
+    border-image-slice: 40;
+  }
+
 </style>
 </head>
 <body>
 
-<h1>Bordures avec maillage, mosaïque et vagues</h1>
+<h1>Bordures sur les 4 côtés avec motifs répétés</h1>
 
 <div class="cadre viking">
-  Bordure effet Maillage Viking (entrelacs métallique)
+  Bordure effet Maillage Viking
 </div>
 
 <div class="cadre mediterraneen">
-  Bordure effet Mosaïque Méditerranéenne (motifs colorés semi-transparents)
+  Bordure effet Mosaïque Méditerranéenne
 </div>
 
 <div class="cadre ocean">
-  Bordure effet Océan (vagues bleues simples)
+  Bordure effet Océan avec vagues
 </div>
 
 </body>
