@@ -1,0 +1,128 @@
+:root {
+  --bg: #071029;
+  --accent: #ffd166;
+  --muted: #cbd5e1;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--muted);
+  padding: 20px;
+}
+
+h1 {
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  font-size: 36px;
+}
+
+.label {
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Modale */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.close {
+  background: #ccc;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* Soleil */
+.sun .icon {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #fff6cc 0 10%, #ffd166 30%, #ff9f1c 80%);
+  border-radius: 50%;
+}
+
+/* Terre */
+.earth .icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(180deg, #5fb6ff, #0a6a9b);
+  border-radius: 50%;
+  color: white;
+}
+
+/* Mars */
+.mars .icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(180deg, #ffad9b, #d94f3a);
+  border-radius: 50%;
+  color: white;
+}
+
+/* Animation nuages */
+.nuages .icon {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  height: 40px;
+}
+
+.nuages .cloud {
+  position: absolute;
+  top: 8px;
+  background: linear-gradient(180deg, #ffffffbb, #dfe9f9aa);
+  height: 26px;
+  border-radius: 20px;
+}
+
+.nuages .cloud.c1 { left: 6px; width: 48px; animation: cloud1 8s linear infinite; }
+.nuages .cloud.c2 { left: 40px; width: 68px; top: 2px; animation: cloud2 10s linear infinite; }
+.nuages .cloud.c3 { left: 90px; width: 38px; top: 10px; animation: cloud3 6s linear infinite; }
+
+@keyframes cloud1 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(8px); } }
+@keyframes cloud2 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-10px); } }
+@keyframes cloud3 { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
